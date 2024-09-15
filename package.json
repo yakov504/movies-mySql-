@@ -1,0 +1,23 @@
+{
+  "name": "movies",
+  "version": "1.0.0",
+  "description": "MVC NodeJS Express + ejs + MySQL project",
+  "main": "movies.js",
+  "scripts": {
+    "start": "nodemon movies.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "express-fileupload": "^1.5.0",
+    "mysql2": "^3.11.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.5",
+    "@types/express-fileupload": "^1.5.1"
+  }
+}

@@ -1,0 +1,56 @@
+<%- include('partials/header.ejs') %>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (movie) { %>
+        <form class="add-movie-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="movie-name">Movie Name</label>
+                    <input type="text" class="form-control" name="movieName" id="movie-name" value="<%= movie.name %>" required>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="genere">Genre</label>
+                    <select class="form-control" name="genere" id="genere">
+                        <option value="" <% if (!movie.genere) { %> selected <% } %> >-- Choose genre --</option>
+                        <option value="action" <% if (movie.genere ==="action") { %> selected <% } %>>Action</option>
+                        <option value="comedy" <% if (movie.genere ==="comedy") { %> selected <% } %>>Comedy</option>
+                        <option value="drama" <% if (movie.genere ==="drama") { %> selected <% } %>>Drama</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="year">Year</label>
+                    <input type="number" class="form-control" name="year" id="year" placeholder="Year" value="<%= movie.year %>">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="country">Made in Country</label>
+                    <select id="country" name="country" class="form-control">
+                        <option value="" <% if (!movie.country) { %> selected <% } %>>-- Choose country --</option>
+                        <option value="Israel" <% if (movie.country==="Israel") { %> selected <% } %>>Israel</option>
+                        <option value="Usa" <% if (movie.country==="Usa") { %> selected <% } %>>USA</option>
+                        <option value="Canada" <% if (movie.country==="Canada") { %> selected <% } %>>Canada</option>
+                        <option value="France" <% if (movie.country==="France") { %> selected <% } %>>France</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="prepare-time-min">Image movie</label>
+                    <input type="file" class="form-control" name="movie_img" id="movie_img"  value="<%= movie.img %>" required>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="movie_time">Movie Time (min)</label>
+                    <input type="number" class="form-control" name="movie_time" id="movie_time" value="<%= movie.movie_time %>" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success float-right">Update movie</button>
+        </form>
+    <% } else { %>
+        <p class="text-center">movie Not Found. Go <a href="/add">here</a> to add movies.</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>

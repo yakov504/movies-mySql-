@@ -1,0 +1,40 @@
+<%- include('partials/header.ejs') %>
+    <div class="table-wrapper">
+        <% if (movie.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Genere</th>
+                        <th scope="col">Year</th>
+                        <th scope="col">Country</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Movie_time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% movie.forEach((movie, index) => { %>
+                        <tr>
+                            <th scope="row"><%= movie.id %></th>
+                            <td><%= movie.name %></td>
+                            <td><%= movie.genere %></td>
+                            <td><%= movie.year %></td>
+                            <td><%= movie.country %></td>
+                            <td><img src="/assets/img/<%= movie.image %>"class="rounded-circle movie-img" alt=""></td>
+                            <td><%= movie.movie_time %></td>
+                            <td>
+                                <a href="/edit/<%= movie.id %>" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                                <a href="/delete/<%= movie.id %>" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No movie found. Go <a href="/add" >here</a> to add movie.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>
